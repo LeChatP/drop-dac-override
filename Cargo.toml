@@ -1,0 +1,2 @@
+[workspace]
+members = ["drop-dac-override", "drop-dac-override-common", "xtask"]
