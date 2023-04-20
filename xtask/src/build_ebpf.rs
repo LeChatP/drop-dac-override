@@ -1,7 +1,4 @@
-use std::fs::File;
-use std::io::{self, Write};
-use std::process::{Command, Stdio};
-use tempfile::NamedTempFile;
+use std::process::{Command};
 use std::{path::PathBuf};
 
 use clap::Parser;
@@ -44,7 +41,6 @@ pub struct Options {
 }
 
 pub fn build_ebpf(opts: Options) -> Result<(), anyhow::Error> {
-    gen_vmlinux();
     let dir = PathBuf::from("drop-dac-override-ebpf");
     let target = format!("--target={}", opts.target);
     let mut args = vec![
