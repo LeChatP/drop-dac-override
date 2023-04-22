@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-aya-bpf = { git = "https://github.com/aya-rs/aya", branch = "main" }
-aya-log-ebpf = { git = "https://github.com/aya-rs/aya", branch = "main" }
+aya-bpf = { git = "https://github.com/aya-rs/aya", rev = "1066c6c" }
+aya-log-ebpf = { git = "https://github.com/aya-rs/aya", rev = "1066c6c" }
 drop-dac-override-common = { path = "../drop-dac-override-common" }
 
 [[bin]]
