@@ -11,6 +11,7 @@ use aya_bpf::{
 
 
 const CAP_DAC_OVERRIDE: i32 = 1;
+const CAP_DAC_READ_SEARCH: i32 = 2;
 
 #[lsm(name = "capable")]
 pub fn capable(ctx: LsmContext) -> i32 {
@@ -25,7 +26,7 @@ unsafe fn try_capable(ctx: LsmContext) -> Result<i32, i32> {
 
     // If previous eBPF LSM program didn't allow the action, return the
     // previous error code.
-    if capability == CAP_DAC_OVERRIDE {
+    if capability == CAP_DAC_OVERRIDE || capability == CAP_DAC_READ_SEARCH {
         info!(&ctx,"capable: Blocking CAP_DAC_OVERRIDE");
         return Err(-1);
     }
